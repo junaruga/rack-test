@@ -5,6 +5,8 @@ language: ruby
 sudo: false
 before_install:
   - |
+    echo "TRAVIS_RUBY_VERSION: ${TRAVIS_RUBY_VERSION}"
+  - |
     if [[ "${TRAVIS_RUBY_VERSION}" =~ ^2\.2 ]]; then
       gem install bundler -v '< 2'
     else
