@@ -9,7 +9,7 @@ before_install:
   - |
     ruby -e "puts RUBY_ENGINE"
   - |
-    if [ ruby -e "RUBY_ENGINE == 'ruby' Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.3')" ]; then
+    if [ ruby -e "exit(RUBY_ENGINE == 'ruby' && RUBY_VERSION =~ /^2\.2/)" ]; then
       gem install bundler -v '< 2'
     else
       gem install bundler
