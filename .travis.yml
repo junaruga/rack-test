@@ -9,7 +9,8 @@ before_install:
   - |
     ruby -e "puts RUBY_ENGINE"
   - |
-    if [[ "${TRAVIS_RUBY_VERSION}" =~ ^2\.2 ]]; then
+    if [[ ruby -e "exit 1 unless RUBY_ENGINE == 'ruby'" && \
+      "${TRAVIS_RUBY_VERSION}" =~ ^2\.2 ]]; then
       gem install bundler -v '< 2'
     else
       gem install bundler
